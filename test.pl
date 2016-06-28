@@ -17,15 +17,15 @@ my $hits = 0;
 my $count = 0;
 while (<STDIN>) {
     # chomp;
-    # $count++;
-    last if $count++==200000;
+    $count++;
+    # last if $count++==200000;
     if ($cache->get($_)) {
         $hits++;
     }
     else {
         $cache->set($_, ($_ x 2));
     }
-    print "$count... " if $count % 1000 == 0;
+    # print "$count... " if $count % 1000 == 0;
 }
 
 # $statm = statm() - $statm;
